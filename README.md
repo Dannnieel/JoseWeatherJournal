@@ -1,0 +1,2 @@
+# JoseWeatherJournal
+Weather Journal 
