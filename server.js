@@ -22,15 +22,22 @@ app.listen(port, () => {
   console.log(`Server running on port ${port}`);
 });
 
-const projectData = {};
 
-app.get ('/data', (req, res) => {
-  res.send(projectData);
+const records = [];
+
+
+app.get ('/data', async (req, res) => {
+  res.send(records);
 });
-app.post('/data', (req, res) => {
+
+
+app.post('/data', async (req, res) => {
   const newData = req.body;
+  const projectData = {};
   projectData.temp = newData.temp;
   projectData.date = newData.date;
   projectData.feelings = newData.feelings;
-  res.send(projectData);
+
+  records.push(projectData);
+  res.status(200).send({ message: "Ya guardé tu registro."});
 });
