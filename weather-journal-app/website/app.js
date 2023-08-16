@@ -101,35 +101,45 @@ async function getData(){
 //  });
 //}); 
 
-const retrieveData = async () =>{
+const retrieveData = async () => {
   const request = await fetch('http://localhost:3000/data');
   try {
     const content = document.getElementById('holder_entries');
 
-    content.innerHTML = "";
-  const records = await request.json()
-  console.log(records);
-  
-  for (var i = 0; i < records.length; i++){
+    const records = await request.json();
+    console.log(records);
 
+    for (var i = 0; i < records.length; i++) {
+      const newdiv = document.createElement('div');
+      newdiv.className = "newDiv";
 
-  const newdiv = document.createElement('div');
-  newdiv.className = "newDiv"; 
-  newdiv.innerHTML = "SOY UN DIV";
+      const tempElement = document.createElement('p');
+      tempElement.innerHTML = `Temperature: ${records[i].temp}`;
 
-  
-  content.appendChild(newdiv);
+      const dateElement = document.createElement('p');
+      dateElement.innerHTML = `Date: ${records[i].date}`;
 
+      const feelingsElement = document.createElement('p');
+      feelingsElement.innerHTML = `Feelings: ${records[i].feelings}`;
 
+      newdiv.appendChild(tempElement);
+      newdiv.appendChild(dateElement);
+      newdiv.appendChild(feelingsElement);
 
-
+      // Verificar si el contenido ya existe en el div
+      const existingContent = content.innerHTML;
+      if (!existingContent.includes(newdiv.innerHTML)) {
+        content.appendChild(newdiv);
+      }
+    }
+   
 
 
   //  document.getElementById('temp').innerHTML = Math.round() + ' degrees';
   //  document.getElementById('content').innerHTML = allData.feelings;
   //  document.getElementById('date').innerHTML = allData.date;
 
-  }
+  
   
   
   }

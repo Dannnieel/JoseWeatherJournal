@@ -1,13 +1,6 @@
-*{
-    margin:  0;
-    padding: 0;
-    box-sizing: border-box;
-    text-decoration: none;
-    font-family: 'Source Sans Pro',sans-serif;
-
-}
 body{
     background-image: url(img/nube.jpg);
+    font-family: -apple-system, BlinkMacSystemFont, sans-serif;
 }
 
 #app{
@@ -15,7 +8,7 @@ body{
     grid-auto-rows: minmax(150px, auto);
     /* grid-template-columns:  */
     height:100vh;
-    background-image: url(img/nube.jpg);
+    background-image: none;
     color: #fff;
     justify-content: center;
     grid-gap: 1em;
@@ -23,52 +16,46 @@ body{
     font-family: 'Oswald', sans-serif;
 }
 
-
 header{
     position: fixed;
     top: 0;
     left: 0;
     width: 100%;
-    height: 80px;
-    background: #fff;
+    height: 50px;
+    background: none;
     box-shadow: 0 4px 25px -22px black;
     z-index: 2;
-
-  }
-
-
-#title{
-    height: 80px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    color: #46a2fd;
-
-}
-
-
-#zip{
-    width: 100%;
-    padding: 20px;
-    padding-bottom: 40px;
-    box-shadow: -10px 0 20px -30px black;
-    border-radius: 6px;
-    position: relative;
-    overflow: hidden;
-}
+} 
 .holder{
-    justify-content: center;
-    
+
 }
-#holder_entries{
-    display: flex;
-    
-}
+
 .entry{
-    
     background: rgba(59, 74, 107, .4);
 }
 
+#entryHolder{
+
+}
+
+#date{
+
+}
+
+#temp{
+
+}
+
+#content{
+
+}
+
+.headline {
+
+}
+.title{
+
+}
 
 /*  Basic Styling To Override Default For Basic HTML Elements */
 label{
@@ -78,42 +65,34 @@ label{
 
 input{
     display:block;
-    height: 30px;
+    height: 60px;
     width: 320px;
     background:#fff;
     color: #f0d43a;
-
+    font-size: 20px;
     font-family: 'Oswald', sans-serif;
     border: none;
 }
 
-button {
-    width: 320px;
-    border: 6px solid;
-    border-radius: 6px;
-    overflow: hidden;
-    margin-left: 50px;
+button{
+    width: 400px;
+    height: 100px;
     background: #3b4a6b;
     color: #fff;
     font-size: 26px;
     font-family: 'Oswald', sans-serif;
     border: none;
     box-shadow: 2px 4px 5px #444;
-    align-content: center;
-  }
+}
 h1{
     font-size: 36px;
 }
 
 textarea{
+    background:#fff;
     color: #f0d43a;
-    width: 100%;
-    padding: 20px;
-    padding-bottom: 40px;
-    box-shadow: -10px 0 20px -30px black;
-    border-radius: 6px;
-    position: relative;
-    overflow: hidden;
+    font-size: 20px;
+    font-family: 'Oswald', sans-serif;
 }
 /* Reset style for HTML element on active to have no border*/
 input:focus,
