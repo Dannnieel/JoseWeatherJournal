@@ -31,11 +31,14 @@ const getWeatherData = async (zipCode) => {
     console.log('Error:', error);
   }
 };
-
+console.log("register listener", document.getElementById('generate'));
 document.getElementById('generate').addEventListener('click', () => {
+  console.log("click on generate");
   const zipCode = document.getElementById('zip').value;
   getWeatherData(zipCode);
 });
+
+console.log("listener registered")
 
 async function postData(url = '', data){
     const response = await fetch(url, {
@@ -104,43 +107,39 @@ async function getData(){
 const retrieveData = async () => {
   const request = await fetch('http://localhost:3000/data');
   try {
-    const content = document.getElementById('holder_entries');
+    const table = document.getElementById('myTable');
+    table.innerHTML = `<tr>
+                      <th>Temp</th>
+                      <th>Date</th>
+                      <th>Feelings</th>
+                    </tr>`;
+
 
     const records = await request.json();
     console.log(records);
 
     for (var i = 0; i < records.length; i++) {
-      const newdiv = document.createElement('div');
-      newdiv.className = "newDiv";
-
-      const tempElement = document.createElement('p');
+     // const newdiv = document.createElement('div');
+      //newdiv.className = "newDiv";
+    
+      const row = document.createElement("tr");
+  
+      const tempElement = document.createElement('td');
       tempElement.innerHTML = `Temperature: ${records[i].temp}`;
+      const dateElement = document.createElement('td');
 
-      const dateElement = document.createElement('p');
-      dateElement.innerHTML = `Date: ${records[i].date}`;
-
-      const feelingsElement = document.createElement('p');
+      let d = new Date(records[i].date).toLocaleString();
+      dateElement.innerHTML = `Date: ${d}`;
+      const feelingsElement = document.createElement('td');
       feelingsElement.innerHTML = `Feelings: ${records[i].feelings}`;
+      
+      row.appendChild(tempElement);
+      row.appendChild(dateElement);
+      row.appendChild(feelingsElement);
 
-      newdiv.appendChild(tempElement);
-      newdiv.appendChild(dateElement);
-      newdiv.appendChild(feelingsElement);
-
-      // Verificar si el contenido ya existe en el div
-      const existingContent = content.innerHTML;
-      if (!existingContent.includes(newdiv.innerHTML)) {
-        content.appendChild(newdiv);
-      }
+      table.appendChild(row);
+      
     }
-   
-
-
-  //  document.getElementById('temp').innerHTML = Math.round() + ' degrees';
-  //  document.getElementById('content').innerHTML = allData.feelings;
-  //  document.getElementById('date').innerHTML = allData.date;
-
-  
-  
   
   }
   catch(error) {
@@ -152,3 +151,4 @@ const retrieveData = async () => {
 
 
 
+ retrieveData();

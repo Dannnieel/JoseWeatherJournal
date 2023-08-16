@@ -12,10 +12,10 @@ body{
 
 #app{
     display: grid;
-    grid-auto-rows: minmax(150px, auto);
+    /*grid-auto-rows: minmax(150px, auto);
     /* grid-template-columns:  */
     height:100vh;
-    background-image: url(img/nube.jpg);
+    /* background-image: url(img/nube.jpg); */
     color: #fff;
     justify-content: center;
     grid-gap: 1em;
@@ -38,7 +38,8 @@ header{
 
 
 #title{
-    height: 80px;
+    font-size: 30px;
+    height: 70px;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -100,8 +101,9 @@ button {
     border: none;
     box-shadow: 2px 4px 5px #444;
     align-content: center;
-  }
-h1{
+}
+
+h1 {
     font-size: 36px;
 }
 
